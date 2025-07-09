@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean beta editor tags</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    
+  </head>
+  <body>
+    <h2>Clean beta editor tags</h2>
+    <div class="content">
+      <textarea
+        id="textArea"
+        placeholder="Paste code here."
+        rows="25"
+        cols="150"
+      ></textarea>
+
+      <div class="userInputArea">
+        <center>
+          <label for="width" class="userInputBox">Width: </label>
+          <input type="number" id="width" placeholder="268" />
+          <label for="height" class="userInputBox">Height: </label>
+          <input type="number" id="height" placeholder="150" />
+        </center>
+      </div>
+
+      <div class="button" onclick="findAndReplace(); removeLineBreaks()">
+        clean tags
+      </div>
+    </div>
+  </body>
+</html>

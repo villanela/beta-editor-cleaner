@@ -1,0 +1,64 @@
+
+
+:root {
+  --background: #ffffff;
+  --dark: #50524d;
+  --light: #b0b0b0;
+}
+body { 
+  font-family: 'Karla', serif;
+  }
+h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.content {
+  width: fit-content;
+  margin: 40px auto 0;
+  
+}
+.userInputArea {
+  position: relative;
+  padding: 50px 0;
+  
+}
+.userInputBox {
+  margin: 0 0 0 20px;
+}
+
+.button {
+  width: fit-content;
+  margin: 10px auto;
+  background: black;
+  color: white;
+  border-radius: 15px;
+  padding: 4px 15px;
+}
+
+input[type=number] {
+	width: 3em;
+	padding: 0.5em;
+	border: 1px solid var(--light);
+	border-radius: 20px;
+	text-align: center;
+	color: var(--light);
+	appearance: textfield;
+	margin: 0;	
+}
+input:focus { 
+    outline: none !important;
+ }
+
+textarea:focus {
+  outline: none !important;
+}
+
+/** do not edit or remove **/ 
+.credit {
+  text-align:center;
+  margin-top: 50px;
+  margin-bottom: 10px; 
+}
+
+
