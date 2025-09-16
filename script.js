@@ -5,6 +5,7 @@ function findAndReplace() {
 
     // Define multiple words to be replaced and their replacements
     const replacements = [
+      { find: ' alt="image"', replace: "" },
       { find: "</figure>", replace: "" },
       { find: "gifv", replace: "gif" },
       { find: 'alt=""', replace: "" },
