@@ -10,6 +10,8 @@ function findAndReplace() {
       { find: "gifv", replace: "gif" },
       { find: 'alt=""', replace: "" },
       { find: "/> <", replace: "/><" },
+      { find: "<p>", replace: "" },
+      { find: "</p>", replace: "" },
       { find: `<figure data-orig-height="${userHeight}" data-orig-width="${userWidth}">`,replace: ''},
       { find: `data-orig-height="${userHeight}" data-orig-width="${userWidth}"`, replace: '' },
       { find: `sizes="(max-width: ${userWidth}px) 100vw, ${userWidth}px"`, replace: '' }, 
