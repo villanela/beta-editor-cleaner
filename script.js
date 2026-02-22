@@ -5,16 +5,20 @@ function findAndReplace() {
 
     // Define multiple words to be replaced and their replacements
     const replacements = [
-      { find: ' alt="image"', replace: "" },
-      { find: "</figure>", replace: "" },
-      { find: "gifv", replace: "gif" },
+      { find: ' alt="image"', replace: "" },      
       { find: 'alt=""', replace: "" },
       { find: "/> <", replace: "/><" },
       { find: "<p>", replace: "" },
       { find: "</p>", replace: "" },
+      { find: '<img src="', replace: '<img class="lazyload" data-src="' },
+      { find: '.gif">', replace: '.gif" src="placeholder.jpg" />' },      
+      
+      /*{ find: "gifv", replace: "gif" },
+      { find: "</figure>", replace: "" },
       { find: `<figure data-orig-height="${userHeight}" data-orig-width="${userWidth}">`,replace: ''},
       { find: `data-orig-height="${userHeight}" data-orig-width="${userWidth}"`, replace: '' },
-      { find: `sizes="(max-width: ${userWidth}px) 100vw, ${userWidth}px"`, replace: '' }, 
+      { find: `sizes="(max-width: ${userWidth}px) 100vw, ${userWidth}px"`, replace: '' }, */
+      
     ];
 
     // Get the text area
