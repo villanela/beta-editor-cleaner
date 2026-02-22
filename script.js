@@ -3,7 +3,7 @@ function findAndReplace() {
     let originalText = textArea.value;
 
     // Check if the specific term exists before running replacements
-    if (originalText.includes('alt="image"')) {
+    if (originalText.includes('img src')) {
         
         const userHeight = document.getElementById("height").value || 150;
         const userWidth = document.getElementById("width").value || 268;
