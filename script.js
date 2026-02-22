@@ -1,49 +1,49 @@
 function findAndReplace() {
-    // Get user input for height and width
-    const userHeight = document.getElementById("height").value || 150;
-    const userWidth = document.getElementById("width").value || 268;
-
-    // Define multiple words to be replaced and their replacements
-    const replacements = [
-      { find: ' alt="image"', replace: "" },      
-      { find: 'alt=""', replace: "" },
-      { find: "/> <", replace: "/><" },
-      { find: "<p>", replace: "" },
-      { find: "</p>", replace: "" },
-      { find: '<img src="', replace: '<img class="lazyload" data-src="' },
-      { find: '.gif">', replace: '.gif" src="placeholder.jpg" />' },      
-      
-      /*{ find: "gifv", replace: "gif" },
-      { find: "</figure>", replace: "" },
-      { find: `<figure data-orig-height="${userHeight}" data-orig-width="${userWidth}">`,replace: ''},
-      { find: `data-orig-height="${userHeight}" data-orig-width="${userWidth}"`, replace: '' },
-      { find: `sizes="(max-width: ${userWidth}px) 100vw, ${userWidth}px"`, replace: '' }, */
-      
-    ];
-
-    // Get the text area
     const textArea = document.getElementById("textArea");
     let originalText = textArea.value;
 
-    // Perform replacements
-    replacements.forEach(({ find, replace }) => {
-      originalText = originalText.split(find).join(replace);
-    });
+    // Check if the specific term exists before running replacements
+    if (originalText.includes('alt="image"')) {
+        
+        const userHeight = document.getElementById("height").value || 150;
+        const userWidth = document.getElementById("width").value || 268;
 
-    // Remove 'srcset' attribute using regex
-    originalText = originalText.replace(/\s*srcset="[^"]*"\s*/g, '');
+        const replacements = [
+            { find: ' alt="image"', replace: "" },      
+            { find: 'alt=""', replace: "" },
+            { find: "/> <", replace: "/><" },
+            { find: "<p>", replace: "" },
+            { find: "</p>", replace: "" },
+            { find: '<img src="', replace: '<img class="lazyload" data-src="' },
+            { find: '.gif">', replace: '.gif" src="placeholder.jpg" />' }
+        ];
 
-    // Update the text area with the modified content
-    textArea.value = originalText;    
-}
+        // Perform "Cleanup" replacements
+        replacements.forEach(({ find, replace }) => {
+            originalText = originalText.split(find).join(replace);
+        });
 
+        // Remove 'srcset' attribute using regex
+        originalText = originalText.replace(/\s*srcset="[^"]*"\s*/g, '');
 
+        // Update the text area with the cleaned version
+        textArea.value = originalText;
+        console.log("Cleanup mode: Replacements applied.");
 
+    } else {
+        // REVERSAL LOGIC: If 'alt="image"' is NOT found, we assume we are reverting back
+        const reverseReplacements = [
+            { find: '<img class="lazyload" data-src="' , replace: '<img src="' },
+            { find: '.gif" src="placeholder.jpg" />', replace: '.gif">' }
+        ];
 
-function removeLineBreaks() {
-    // Get the text area
-    const textArea = document.getElementById("textArea");
+        // Perform "Reversal" replacements
+        reverseReplacements.forEach(({ find, replace }) => {
+            originalText = originalText.split(find).join(replace);
+        });
 
-    // Remove line breaks by replacing all \n and \r\n with empty string
-    textArea.value = textArea.value.replace(/(\r\n|\n|\r)/g, '');  // Removes all line breaks
+        // Update the text area with the reverted version
+        textArea.value = originalText;
+        console.log("Reversal mode: Restored original tags.");
+    }
 }
