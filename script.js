@@ -33,7 +33,7 @@ function findAndReplace() {
     } else {
         // REVERSAL LOGIC: If 'alt="image"' is NOT found, we assume we are reverting back
         const reverseReplacements = [
-            { find: '<img class="lazyload" data-src="' , replace: '<img src="' }
+            { find: '<img class="lazy" data-src="' , replace: '<img src="' }
         ];
 
         // Perform "Reversal" replacements
