@@ -14,7 +14,8 @@ function findAndReplace() {
             { find: "/> <", replace: "/><" },
             { find: "<p>", replace: "" },
             { find: "</p>", replace: "" },
-            { find: '<img src="', replace: '<img class="lazyload" data-src="' },
+            { find: '<img src="', replace: '<img loading="lazy" src="' }
+            //{ find: '<img src="', replace: '<img class="lazyload" data-src="' },
             //{ find: '.gif">', replace: '.gif" src="placeholder.jpg" />' }
         ];
 
@@ -33,7 +34,8 @@ function findAndReplace() {
     } else {
         // REVERSAL LOGIC: If 'alt="image"' is NOT found, we assume we are reverting back
         const reverseReplacements = [
-            { find: '<img class="lazyload" data-src="' , replace: '<img src="' }
+            //{ find: '<img class="lazyload" data-src="' , replace: '<img src="' }
+            { find: '<img loading="lazy" src="', replace: '<img src="' }
         ];
 
         // Perform "Reversal" replacements
